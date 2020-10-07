@@ -31,8 +31,9 @@ def reconstruction_3D(dilt1, dlt2, dic2d):
                                 [ dltl[4] - dltl[8]*dic2d_l[i][1], dltl[5] - dltl[9]*dic2d_l[i][1], dltl[6] - dltl[10]*dic2d_l[i][1] ], ])
                 u = np.reshape(u, (4,1))
                 a = np.reshape(a, (4,3))
-                tem = a.dot(a.T)
-                tem1 = np.dot(a.T, np.linalg.inv(tem))
+                at = a.T
+                tem = np.dot(at, a)
+                tem1 = np.dot(np.linalg.inv(tem), a.T)
                 p_3d = np.dot(tem1,u)
                 point.append(p_3d)
             except:
