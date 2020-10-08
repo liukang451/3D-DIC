@@ -46,8 +46,8 @@ def reconstruction_3D(dilt1, dlt2, dic2d):
 #'DIC2DpairResults_C_201_C_202.mat'
 # reconstruction_3D('DLTstruct_cam_201.mat', 'DLTstruct_cam_202.mat', 'DIC2DpairResults_C_201_C_202.mat')
 
-p = reconstruction_3D('DLTstruct_cam_201.mat', 'DLTstruct_cam_202.mat', 'DIC2DpairResults_C_201_C_202.mat')
-print(p[0])
+# p = reconstruction_3D('DLTstruct_cam_201.mat', 'DLTstruct_cam_202.mat', 'DIC2DpairResults_C_201_C_202.mat')
+# print(p[0])
 
 
 
