@@ -1,16 +1,17 @@
 import scipy.io as sio
 import mat73
 import numpy as np
+import sys 
+import os
 
 
-
-def reconstruction_3D(dilt1, dlt2, dic2d):
-    dlt1_mat = sio.loadmat(dilt1)
-    dlt2_mat = sio.loadmat(dlt2)
+def reconstruction_3D(dlt1, dlt2, dic2d):
+    dlt1_mat = sio.loadmat(os.path.join(os.getcwd(), "dicStep3/"+ dlt1))
+    dlt2_mat = sio.loadmat(os.path.join(os.getcwd(), "dicStep3/") + dlt2)
     dltk = dlt1_mat['DLTstructCam']['DLTparams'][0][0] #the 11 dlt parameters for cam1 in matricx
     dltl = dlt2_mat['DLTstructCam']['DLTparams'][0][0] #the 11 dlt parameters for cam2 in matricx, and turn it in a float array
 
-    dic2d = mat73.loadmat(dic2d)
+    dic2d = mat73.loadmat(os.path.join(os.getcwd(), "dicStep3/") + dic2d)
     dic2d_K = dic2d['DIC2DpairResults']['Points'][:5]
     dic2d_L = dic2d['DIC2DpairResults']['Points'][5:]
 
@@ -46,8 +47,11 @@ def reconstruction_3D(dilt1, dlt2, dic2d):
 #'DIC2DpairResults_C_201_C_202.mat'
 # reconstruction_3D('DLTstruct_cam_201.mat', 'DLTstruct_cam_202.mat', 'DIC2DpairResults_C_201_C_202.mat')
 
-# p = reconstruction_3D('DLTstruct_cam_201.mat', 'DLTstruct_cam_202.mat', 'DIC2DpairResults_C_201_C_202.mat')
-# print(p[0])
+p = reconstruction_3D('DLTstruct_cam_201.mat', 'DLTstruct_cam_202.mat', 'DIC2DpairResults_C_201_C_202.mat')
+print('   X            Y            Z')
+for i in p[0][:20]:
+    print(i[0], i[1], i[2])
+    print(' ')
 
 
 
