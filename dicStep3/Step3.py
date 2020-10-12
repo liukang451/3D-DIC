@@ -42,16 +42,31 @@ def reconstruction_3D(dlt1, dlt2, dic2d):
         p.append(point)
     return(p)
 
-#'DLTstruct_cam_201.mat'
-#'DLTstruct_cam_202.mat'
-#'DIC2DpairResults_C_201_C_202.mat'
-# reconstruction_3D('DLTstruct_cam_201.mat', 'DLTstruct_cam_202.mat', 'DIC2DpairResults_C_201_C_202.mat')
 
-p = reconstruction_3D('DLTstruct_cam_201.mat', 'DLTstruct_cam_202.mat', 'DIC2DpairResults_C_201_C_202.mat')
-print('   X            Y            Z')
-for i in p[0][:20]:
-    print(i[0], i[1], i[2])
-    print(' ')
+# p = reconstruction_3D('DLTstruct_cam_201.mat', 'DLTstruct_cam_202.mat', 'DIC2DpairResults_C_201_C_202.mat')
+# print('   X            Y            Z')
+# for i in p[0][:20]:
+#     print(i[0], i[1], i[2])
+#     print(' ')
+
+def corrComb(dic2d):
+    dic2d = mat73.loadmat(os.path.join(os.getcwd(), "dicStep3/") + dic2d)
+    k_corr = dic2d['DIC2DpairResults']['CorCoeffVec'][:5]
+    l_corr = dic2d['DIC2DpairResults']['CorCoeffVec'][5:]
+    corrComb = []
+    for i in range(len(k_corr)):
+        tem = []
+        for j in range(len(k_corr[i][0])):
+            k = k_corr[i][0]
+            l = l_corr[i][0]
+            cor = max(k[j], l[j])
+            tem.append(cor)
+        corrComb.append(tem)
+    return(corrComb)
+
+# corr = corrComb('DIC2DpairResults_C_201_C_202.mat')
+# for i in corr[0][:10]:
+#      print(i)
 
 
 
