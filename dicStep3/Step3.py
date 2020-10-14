@@ -68,5 +68,12 @@ def corrComb(dic2d):
 # for i in corr[0][:10]:
 #      print(i)
 
+def faceReturn(dic2d):
+    dic2d = mat73.loadmat(os.path.join(os.getcwd(), "dicStep3/") + dic2d)
+    return(dic2d['DIC2DpairResults']['Faces'])
+
+# face = faceReturn('DIC2DpairResults_C_201_C_202.mat')
+# for i in face[:10]:
+#     print(i)
 
 
