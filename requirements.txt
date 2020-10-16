@@ -1,0 +1,12 @@
+numba
+scipy
+imageio
+matplotlib
+numpy
+Pillow
+dill
+nose
+scikit-image
+coverage
+pytest
+
