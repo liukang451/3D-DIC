@@ -1,9 +1,13 @@
 import muDIC as dic
 
-def main():
-    # r"./test_imgs/speckle objects/" , png
-    # ./Examples/example_data/ , tif
+def Step2():
+
     path = input("Enter image folder:")
+
+    # Examples:
+    # ./test_imgs/speckle objects/ , png
+    # ./Examples/example_data/ , tif
+
     file_type = input("Enter image file type:")
     image_stack = dic.image_stack_from_folder(path,file_type="."+file_type)
     mesher = dic.Mesher()
@@ -13,9 +17,7 @@ def main():
     dic_job = dic.DICAnalysis(inputs)
     dic_output = dic_job.run()
 
-    print(dic_output.xnodesT)
-    print(dic_output.ynodesT)
-
+    # 2D DIC result visualization
     fields = dic.Fields(dic_output,upscale=10)
     viz = dic.Visualizer(fields,images=image_stack)
     viz.show(field="displacement", component=(1, 1), frame=1)
@@ -29,6 +31,7 @@ def main():
                 "green strain"
                 "residual"
     '''
+    # Extract points' coordinates from output
     Points_1 = []
     Points_2 = []
     for i in range(len(dic_output.xnodesT)):
@@ -39,8 +42,3 @@ def main():
 
     return result
 
-
-
-
-if __name__=='__main__':
-    main()
