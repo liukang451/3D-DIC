@@ -8,4 +8,6 @@ The objective of this project is to extend the Python code from two dimensional 
 ## Reference
 [2D-DIC python code](https://github.com/texm/PReDIC)
 
+[muDIC - a toolkit for 2d-DIC](https://mudic.readthedocs.io/en/latest/)
+
 [MultiDIC MATLAB toolbox](https://github.com/MultiDIC/MultiDIC)
