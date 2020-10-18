@@ -76,4 +76,16 @@ def faceReturn(dic2d):
 # for i in face[:10]:
 #     print(i)
 
+class Step3:
+    def __init__(self, dlt1, dlt2, dic2d):
+        self.dlt1 = dlt1
+        self.dlt2 = dlt2
+        self.dic2d = dic2d
+        self.step3_result = {}
+    
+    def result(self, dlt1, dlt2, dic2d):
+        self.step3_result['3DPoints'] = reconstruction_3D(dlt1, dlt2, dic2d)
+        self.step3_result['corrComb'] = corrComb(dic2d)
+        self.step3_result['face'] = faceReturn(dic2d)
+        return(self.step3_result)
 
