@@ -7,7 +7,10 @@ First run `python3 -m venv venv`  to create a virtual environment.
 Then run `python3 -m pip install -r requirements.txt` to install the necessary packages into the virtual environment.
 
 ## Using by a program
-
+For step-1, the code for calculating the 11 DLT parameters is in step1 folder. It also includes the images that we will use to calculate the 11 DLT parameters.
+For step-2. the code for calculating the 2D-DIC is in step2 folder. It also incldes the images that will match the points in ROI and then will return the 2D coordinates.
+For step-3, the code for calculating the 3D reconstruction is in step3 folder. It includes
+For step-4, the code for calculating the Post processing is in step4 folder.
 
 
 ## Using by command line
