@@ -16,3 +16,4 @@ from Step3.Step3 import Step3
 # 	main()
 
 a = Step3('DLTstruct_cam_201.mat', 'DLTstruct_cam_202.mat', 'DIC2DpairResults_C_201_C_202.mat').result()
+print(a.keys())
