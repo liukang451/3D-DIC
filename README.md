@@ -9,7 +9,9 @@ Then run `python3 -m pip install -r requirements.txt` to install the necessary p
 ## Using by a program
 
 
+
 ## Using by command line
+For each step, a helpful script is included in .py format. To run the code, open the command line interface and type in the command to run the code. For an instance for step-1, type in the command like "python step1.py". then the interface will ask you for step by step working of the code.
 
 
 [Track of teamwork](https://trello.com/b/eWc2PCcY/multidic)
