@@ -1,5 +1,5 @@
 # Multi-DIC Project
-The objective of this project is to extend the Python code from two dimensional deformation measurement to three dimensional derformation measurement.
+The objective of this project is to extend the Python code from two dimensional deformation measurement to three dimensional derformation measurement.Our project was supposed to perform the same functionality as that of given MATLAB code. 
 
 ## Set up
 First run `python3 -m venv venv`  to create a virtual environment.
