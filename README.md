@@ -2,7 +2,9 @@
 The objective of this project is to extend the Python code from two dimensional deformation measurement to three dimensional derformation measurement.
 
 ## Set up
-python pip intall requirements
+First run `python3 -m venv venv`  to create a virtual environment.
+
+Then run `python3 -m pip install -r requirements.txt` to install the necessary packages into the virtual environment.
 
 ## Using by a program
 
