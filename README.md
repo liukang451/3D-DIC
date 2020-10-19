@@ -1,6 +1,15 @@
 # Multi-DIC Project
 The objective of this project is to extend the Python code from two dimensional deformation measurement to three dimensional derformation measurement.
 
+## Set up
+python pip intall requirements
+
+## Using by a program
+
+
+## Using by command line
+
+
 [Track of teamwork](https://trello.com/b/eWc2PCcY/multidic)
 
 [Project timeline](https://www.tiki-toki.com/timeline/entry/1476718/MultiDIC/)
