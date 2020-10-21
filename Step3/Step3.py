@@ -6,12 +6,12 @@ import os
 
 
 def reconstruction_3D(dlt1, dlt2, dic2d):
-    dlt1_mat = sio.loadmat(os.path.join(os.getcwd(), "dicStep3/"+ dlt1))
-    dlt2_mat = sio.loadmat(os.path.join(os.getcwd(), "dicStep3/") + dlt2)
+    dlt1_mat = sio.loadmat(os.path.join(os.getcwd(), "Step3\\"+ dlt1))
+    dlt2_mat = sio.loadmat(os.path.join(os.getcwd(), "Step3\\") + dlt2)
     dltk = dlt1_mat['DLTstructCam']['DLTparams'][0][0] #the 11 dlt parameters for cam1 in matricx
     dltl = dlt2_mat['DLTstructCam']['DLTparams'][0][0] #the 11 dlt parameters for cam2 in matricx, and turn it in a float array
 
-    dic2d = mat73.loadmat(os.path.join(os.getcwd(), "dicStep3/") + dic2d)
+    dic2d = mat73.loadmat(os.path.join(os.getcwd(), "Step3\\") + dic2d)
     dic2d_K = dic2d['DIC2DpairResults']['Points'][:5]
     dic2d_L = dic2d['DIC2DpairResults']['Points'][5:]
 
@@ -50,7 +50,7 @@ def reconstruction_3D(dlt1, dlt2, dic2d):
 #     print(' ')
 
 def corrComb(dic2d):
-    dic2d = mat73.loadmat(os.path.join(os.getcwd(), "dicStep3/") + dic2d)
+    dic2d = mat73.loadmat(os.path.join(os.getcwd(), "Step3\\") + dic2d)
     k_corr = dic2d['DIC2DpairResults']['CorCoeffVec'][:5]
     l_corr = dic2d['DIC2DpairResults']['CorCoeffVec'][5:]
     corrComb = []
@@ -69,7 +69,7 @@ def corrComb(dic2d):
 #      print(i)
 
 def faceReturn(dic2d):
-    dic2d = mat73.loadmat(os.path.join(os.getcwd(), "dicStep3/") + dic2d)
+    dic2d = mat73.loadmat(os.path.join(os.getcwd(), "Step3\\") + dic2d)
     return(dic2d['DIC2DpairResults']['Faces'])
 
 # face = faceReturn('DIC2DpairResults_C_201_C_202.mat')
@@ -83,9 +83,9 @@ class Step3:
         self.dic2d = dic2d
         self.step3_result = {}
     
-    def result(self, dlt1, dlt2, dic2d):
-        self.step3_result['3DPoints'] = reconstruction_3D(dlt1, dlt2, dic2d)
-        self.step3_result['corrComb'] = corrComb(dic2d)
-        self.step3_result['face'] = faceReturn(dic2d)
+    def result(self):
+        self.step3_result['3DPoints'] = reconstruction_3D(self.dlt1, self.dlt2, self.dic2d)
+        self.step3_result['corrComb'] = corrComb(self.dic2d)
+        self.step3_result['face'] = faceReturn(self.dic2d)
         return(self.step3_result)
 
