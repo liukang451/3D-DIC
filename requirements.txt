@@ -10,3 +10,6 @@ scikit-image
 coverage
 pytest
 
+
+mat73
+opencv
